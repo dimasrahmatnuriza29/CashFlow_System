@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f0f9ff;
+  --foreground: #0c4a6e;
+  --navy: #0c4a6e;
+  --ocean: #0284c7;
+  --teal: #0d9488;
+  --foam: #f0f9ff;
+  --sand: #fef3c7;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-navy: var(--navy);
+  --color-ocean: var(--ocean);
+  --color-teal: var(--teal);
+  --color-foam: var(--foam);
+  --color-sand: var(--sand);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: linear-gradient(180deg, #e0f2fe 0%, #f0f9ff 50%, #f0f9ff 100%);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+/* Ship bobbing animation */
+@keyframes ship-bob {
+  0%, 100% { transform: translateY(0); }
+  25% { transform: translateY(-6px); }
+  50% { transform: translateY(0); }
+  75% { transform: translateY(-4px); }
+}
+.animate-ship-bob {
+  animation: ship-bob 4s ease-in-out infinite;
+}
+
+/* Wave animations */
+@keyframes wave-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-wave-slow {
+  animation: wave-scroll 12s linear infinite;
+}
+.animate-wave-mid {
+  animation: wave-scroll 8s linear infinite;
+}
+.animate-wave-fast {
+  animation: wave-scroll 6s linear infinite;
+}
+
+/* Steering wheel rotation */
+@keyframes wheel-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.animate-wheel-spin {
+  animation: wheel-spin 10s linear infinite;
+}
+.animate-wheel-spin-reverse {
+  animation: wheel-spin 14s linear infinite reverse;
+}
+
+/* Glassmorphism card */
+.glass-card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(186, 230, 253, 0.5);
+  box-shadow: 0 4px 20px rgba(14, 165, 233, 0.08);
+}
+
+/* Sidebar gradient */
+.sidebar-gradient {
+  background: linear-gradient(180deg, #0c4a6e 0%, #075985 50%, #0369a1 100%);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #e0f2fe;
+}
+::-webkit-scrollbar-thumb {
+  background: #7dd3fc;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0ea5e9;
+}
